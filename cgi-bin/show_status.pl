@@ -22,7 +22,7 @@ my $query = new CGI;
 my @members = $query->param('member');
 map { s/[^a-zA-Z0-9_ -]//g; } @members;
 
-my $dsn="dbi:Pg:dbname=$dbname";
+my $dsn="dbi:mysql:dbname=$dbname";
 $dsn .= ";host=$dbhost" if $dbhost;
 $dsn .= ";port=$dbport" if $dbport;
 

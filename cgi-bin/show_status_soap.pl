@@ -16,11 +16,11 @@ require "$ENV{BFConfDir}/BuildFarmWeb.pl";
 
 use SOAP::Transport::HTTP;
 
-SOAP::Transport::HTTP::CGI->dispatch_to('PGBuildFarm')->handle;
+SOAP::Transport::HTTP::CGI->dispatch_to('EximBuildFarm')->handle;
 
 exit;
 
-package PGBuildFarm;
+package EximBuildFarm;
 
 use DBI;
 

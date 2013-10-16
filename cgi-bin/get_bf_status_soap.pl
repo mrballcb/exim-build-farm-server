@@ -11,8 +11,8 @@ See accompanying License file for license details
 use SOAP::Lite ;
 
 my $obj = SOAP::Lite
-    ->uri('http://www.pgbuildfarm.org/PGBuildFarm')
-    ->proxy('http://www.pgbuildfarm.org/cgi-bin/show_status_soap.pl')
+    ->uri('http://eximbuild.mrball.net/EximBuildFarm')
+    ->proxy('http://eximbuild.mrball.net/cgi-bin/show_status_soap.pl')
     ;
 
 my $data = $obj->get_status->result;

@@ -32,11 +32,11 @@ See accompanying License file for license details
   [%- CASE 'OK' %]pass[% CASE 'ContribCheck' %]warn[% CASE [ 'Check' 'InstallCheck' ] %]warnx[% CASE %]fail[% END %]"
 [%- END -%]
 [% WRAPPER 'page.tt' 
-	title = 'PostgreSQL BuildFarm Status'
+	title = 'Exim BuildFarm Status'
 	bodyclass = 'none'
 	pagebutton = 'status'
 %]
-    <h1>PostgreSQL BuildFarm Status</h1>
+    <h1>Exim BuildFarm Status</h1>
     <p>
       Shown here is the latest status of each farm member 
       for each branch it has reported on in the last 30 days.

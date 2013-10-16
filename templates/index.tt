@@ -13,14 +13,14 @@ See accompanying License file for license details
 
 -%]
 [% WRAPPER 'page.tt' 
-	title = 'PostgreSQL BuildFarm'
+	title = 'Exim BuildFarm'
 	bodyclass = 'none'
 	pagebutton = 'home'
 %]
 <!-- html generated from index.tt -->
 <p>
-The PostgreSQL build farm is a distributed system for automatically testing
-changes in the source code for PostgreSQL as they occur, on a wide variety
+The Exim build farm is a distributed system for automatically testing
+changes in the source code for Exim as they occur, on a wide variety
 of platforms. This server is the central repository for the results of those
 tests.
 </p>
@@ -35,10 +35,10 @@ We are particularly interested in unusual platforms or combinations of
 architecture, operating system and compiler.
 </p>
 <p>To see what is involved in running a buildfarm member, please 
-read <a href="http://wiki.postgresql.org/wiki/PostgreSQL_Buildfarm_Howto">http://wiki.postgresql.org/wiki/PostgreSQL_Buildfarm_Howto</a>.
+read <a href="http://wiki.exim.org/wiki/Exim_Buildfarm_Howto">http://wiki.exim.org/wiki/Exim_Buildfarm_Howto</a>.
 The client code can be found at the
 <a href="http://www.pgbuildfarm.org/downloads/">downloads page</a>.
 </p>
-<p>The build farm software should run on all platforms that can support PostgreSQL.
+<p>The build farm software should run on all platforms that can support Exim.
 </p>
 [% END %]

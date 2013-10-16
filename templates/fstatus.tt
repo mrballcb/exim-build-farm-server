@@ -38,11 +38,11 @@ See accompanying License file for license details
   [%- CASE 'OK' %]pass[% CASE 'ContribCheck' %]warn[% CASE [ 'Check' 'InstallCheck' ] %]warnx[% CASE %]fail[% END %]"
 [%- END -%]
 [% WRAPPER 'page.tt' 
-	title = 'PostgreSQL BuildFarm Recent Failures'
+	title = 'Exim BuildFarm Recent Failures'
 	bodyclass = 'none'
 	pagebutton = 'failures'
 %]
-    <h1>PostgreSQL BuildFarm Recent Failures</h1>
+    <h1>Exim BuildFarm Recent Failures</h1>
     <p>
       Shown here are build failures that occurred in the last [% max_days %] days.
     </p>

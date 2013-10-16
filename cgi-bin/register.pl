@@ -148,7 +148,7 @@ my $me = `id -un`; chomp($me);
 my $host = `hostname`; chomp ($host);
 $host = $default_host unless ($host =~ m/[.]/ || !defined($default_host));
 
-my $from_addr = "PG Build Farm <$me\@$host>";
+my $from_addr = "Exim Build Farm <$me\@$host>";
 $from_addr =~ tr /\r\n//d;
 
 $msg->set('From',$from_addr);

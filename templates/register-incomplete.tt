@@ -6,7 +6,7 @@ See accompanying License file for license details
 
 -%]
 [% WRAPPER 'page.tt' 
-    title = 'PostgreSQL BuildFarm Application'
+    title = 'Exim BuildFarm Application'
     bodyclass = 'application'
     pagebutton = 'none'
 %]

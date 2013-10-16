@@ -6,18 +6,18 @@ See accompanying License file for license details
 
 -%]
 [% WRAPPER 'page.tt' 
-	title = 'PostgreSQL BuildFarm Application'
+	title = 'Exim BuildFarm Application'
 	bodyclass = 'application'
 	pagebutton = 'register'
 %]
-<h1>Application to join PostgreSQL BuildFarm</h1>
+<h1>Application to join Exim BuildFarm</h1>
 
 <p>Here is a short description of what is required to join the buildfarm successfully. Please read it carefully
 before submitting this form.</p>
 
 <ul>
 <li> your machine will need to be able to contact <a href="http://www.pgbuildfarm.org">http://www.pgbuildfarm.org</a>
-     either directly or via proxy, and it will need access to a PostgreSQL Git repository, 
+     either directly or via proxy, and it will need access to a Exim Git repository, 
      either the one at postgresql.org or a mirror.</li>
 <li> have <a href="http://git-scm.org">git</a> installed.</li>
 <li> have a working Postgresql build environment for your platform.</li>
@@ -25,7 +25,7 @@ before submitting this form.</p>
 <li> download and unpack the latest release of client code from 
      <a href="http://www.pgbuildfarm.org/downloads/">http://www.pgbuildfarm.org/downloads/</a></li>
 <li> read instructions at 
-     <a href="http://wiki.postgresql.org/wiki/PostgreSQL_Buildfarm_Howto">http://wiki.postgresql.org/wiki/PostgreSQL_Buildfarm_Howto</a></li>
+     <a href="http://wiki.postgresql.org/wiki/Exim_Buildfarm_Howto">http://wiki.postgresql.org/wiki/PostgreSQL_Buildfarm_Howto</a></li>
 <li> get the software running locally using flags --force --nostatus --nosend</li>
 <li> register your machine on this page</li>
 <li> when you receive credentials, put them in the config file, and schedule regular builds (without those flags) 

@@ -24,7 +24,7 @@ use CGI;
 use Digest::SHA1  qw(sha1_hex);
 use MIME::Base64;
 use DBI;
-use DBD::Pg;
+use DBD::mysql;
 use Data::Dumper;
 use Mail::Send;
 use Time::ParseDate;
@@ -36,7 +36,7 @@ my $buildlogs = "$ENV{BFConfDir}/buildlogs";
 die "no dbname" unless $dbname;
 die "no dbuser" unless $dbuser;
 
-my $dsn="dbi:Pg:dbname=$dbname";
+my $dsn="dbi:mysql:dbname=$dbname";
 $dsn .= ";host=$dbhost" if $dbhost;
 $dsn .= ";port=$dbport" if $dbport;
 
@@ -335,13 +335,13 @@ $sth->bind_param(7,$branch);
 $sth->bind_param(8,$changed_this_run);
 $sth->bind_param(9,$changed_since_success);
 $sth->bind_param(10,$log_file_names);
-#$sth->bind_param(11,$log_archive,{ pg_type => DBD::Pg::PG_BYTEA });
-$sth->bind_param(11,undef,{ pg_type => DBD::Pg::PG_BYTEA });
+#$sth->bind_param(11,$log_archive,{ pg_type => DBD::mysql::PG_BYTEA });
+$sth->bind_param(11,undef,{ pg_type => DBD::mysql::PG_BYTEA });
 $sth->bind_param(12,$config_flags);
 $sth->bind_param(13,$scm);
 $sth->bind_param(14,$scmurl);
 $sth->bind_param(15,$githeadref);
-$sth->bind_param(16,$frozen_sconf,{ pg_type => DBD::Pg::PG_BYTEA });
+$sth->bind_param(16,$frozen_sconf,{ pg_type => DBD::mysql::PG_BYTEA });
 
 $sqlres = $sth->execute;
 
