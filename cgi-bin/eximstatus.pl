@@ -24,7 +24,7 @@ use CGI;
 use Digest::SHA1  qw(sha1_hex);
 use MIME::Base64;
 use DBI;
-use DBD::mysql;
+use DBD::Pg;
 use Data::Dumper;
 use Mail::Send;
 use Time::ParseDate;
@@ -36,7 +36,7 @@ my $buildlogs = "$ENV{BFConfDir}/buildlogs";
 die "no dbname" unless $dbname;
 die "no dbuser" unless $dbuser;
 
-my $dsn="dbi:mysql:dbname=$dbname";
+my $dsn="dbi:Pg:dbname=$dbname";
 $dsn .= ";host=$dbhost" if $dbhost;
 $dsn .= ";port=$dbport" if $dbport;
 
@@ -320,7 +320,7 @@ EOSQL
 
 my $sqlres;
 $db->begin_work;
-$db->do("select set_local_error_terse()");
+#$db->do("select set_local_error_terse()");
 
 
 $sth=$db->prepare($logst);
@@ -335,13 +335,13 @@ $sth->bind_param(7,$branch);
 $sth->bind_param(8,$changed_this_run);
 $sth->bind_param(9,$changed_since_success);
 $sth->bind_param(10,$log_file_names);
-#$sth->bind_param(11,$log_archive,{ pg_type => DBD::mysql::PG_BYTEA });
-$sth->bind_param(11,undef,{ pg_type => DBD::mysql::PG_BYTEA });
+#$sth->bind_param(11,$log_archive,{ pg_type => DBD::Pg::PG_BYTEA });
+$sth->bind_param(11,undef,{ pg_type => DBD::Pg::PG_BYTEA });
 $sth->bind_param(12,$config_flags);
 $sth->bind_param(13,$scm);
 $sth->bind_param(14,$scmurl);
 $sth->bind_param(15,$githeadref);
-$sth->bind_param(16,$frozen_sconf,{ pg_type => DBD::mysql::PG_BYTEA });
+$sth->bind_param(16,$frozen_sconf,{ pg_type => DBD::Pg::PG_BYTEA });
 
 $sqlres = $sth->execute;
 
@@ -528,7 +528,7 @@ my $me = `id -un`; chomp($me);
 my $host = `hostname`; chomp ($host);
 $host = $default_host unless ($host =~ m/[.]/ || !defined($default_host));
 
-my $from_addr = "PG Build Farm <$me\@$host>";
+my $from_addr = "Exim Build Farm <$me\@$host>";
 $from_addr =~ tr /\r\n//d;
 
 my $msg = new Mail::Send;
@@ -536,13 +536,13 @@ my $msg = new Mail::Send;
 
 $msg->to(@$mailto);
 $msg->bcc(@$bcc_stat) if (@$bcc_stat);
-$msg->subject("PGBuildfarm member $animal Branch $branch $stat_type $stage");
+$msg->subject("Exim BuildFarm member $animal Branch $branch $stat_type $stage");
 $msg->set('From',$from_addr);
 my $fh = $msg->open;
 print $fh <<EOMAIL; 
 
 
-The PGBuildfarm member $animal had the following event on branch $branch:
+The Exim BuildFarm member $animal had the following event on branch $branch:
 
 $stat_type: $stage
 
@@ -575,12 +575,12 @@ $stat_type = $prev_stat ne 'OK' ? "changed from $prev_stat failure to $stage" :
 $stat_type = "New member: $stage" if $prev_stat eq 'NEW';
 $stat_type .= " failure" if $stage ne 'OK';
 
-$msg->subject("PGBuildfarm member $animal Branch $branch Status $stat_type");
+$msg->subject("Exim BuildFarm member $animal Branch $branch Status $stat_type");
 $msg->set('From',$from_addr);
 $fh = $msg->open;
 print $fh <<EOMAIL;
 
-The PGBuildfarm member $animal had the following event on branch $branch:
+The Exim BuildFarm member $animal had the following event on branch $branch:
 
 Status $stat_type
 

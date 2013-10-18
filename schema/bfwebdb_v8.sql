@@ -13,7 +13,7 @@ SET escape_string_warning = off;
 -- Name: plperl; Type: PROCEDURAL LANGUAGE; Schema: -; Owner: eximbuild
 --
 
-CREATE OR REPLACE PROCEDURAL LANGUAGE plperl;
+CREATE PROCEDURAL LANGUAGE plperl;
 
 
 ALTER PROCEDURAL LANGUAGE plperl OWNER TO eximbuild;
@@ -22,7 +22,7 @@ ALTER PROCEDURAL LANGUAGE plperl OWNER TO eximbuild;
 -- Name: plperlu; Type: PROCEDURAL LANGUAGE; Schema: -; Owner: eximbuild
 --
 
-CREATE OR REPLACE PROCEDURAL LANGUAGE plperlu;
+CREATE PROCEDURAL LANGUAGE plperlu;
 
 
 ALTER PROCEDURAL LANGUAGE plperlu OWNER TO eximbuild;
@@ -31,7 +31,7 @@ ALTER PROCEDURAL LANGUAGE plperlu OWNER TO eximbuild;
 -- Name: plpgsql; Type: PROCEDURAL LANGUAGE; Schema: -; Owner: eximbuild
 --
 
-CREATE OR REPLACE PROCEDURAL LANGUAGE plpgsql;
+CREATE PROCEDURAL LANGUAGE plpgsql;
 
 
 ALTER PROCEDURAL LANGUAGE plpgsql OWNER TO eximbuild;
@@ -211,7 +211,7 @@ CREATE FUNCTION set_local_error_terse() RETURNS void
     AS $$ set local log_error_verbosity = terse $$;
 
 
-ALTER FUNCTION public.set_local_error_terse() OWNER TO eximbuild;
+-- ALTER FUNCTION public.set_local_error_terse() OWNER TO eximbuild;
 
 --
 -- Name: target(text); Type: FUNCTION; Schema: public; Owner: eximbuild

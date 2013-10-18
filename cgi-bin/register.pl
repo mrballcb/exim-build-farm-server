@@ -154,7 +154,7 @@ $from_addr =~ tr /\r\n//d;
 $msg->set('From',$from_addr);
 
 $msg->to(@$notifyapp);
-$msg->subject('New Buildfarm Application');
+$msg->subject('New BuildFarm Application');
 my $fh = $msg->open;
 print $fh "\n\nName: $dummyname\n",
     "OS: $os: $osv\n",

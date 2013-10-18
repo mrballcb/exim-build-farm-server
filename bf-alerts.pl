@@ -198,7 +198,7 @@ my $me = `id -un`; chomp $me;
 my $host = `hostname`; chomp ($host);
 $host = $default_host unless ($host =~ m/[.]/ || !defined($default_host));
 
-my $from_addr = "PG Build Farm <$me\@$host>";
+my $from_addr = "Exim BuildFarm <$me\@$host>";
 $from_addr =~ tr /\r\n//d;
 
 
@@ -232,7 +232,7 @@ foreach my $clearme (@need_cleared)
     # $sth->finish;
 
     $msg->to($mailto);
-    $msg->subject("PGBuildfarm member $animal Branch $branch Alert cleared");
+    $msg->subject("Exim BuildFarm member $animal Branch $branch Alert cleared");
     my $fh = $msg->open;
     print $fh "\n\n$text\n"; 
     $fh->close;
@@ -261,7 +261,7 @@ foreach my $needme (@need_alerts)
 
     $msg->to($mailto);
 
-    $msg->subject("PGBuildfarm member $animal Branch $branch " .
+    $msg->subject("Exim BuildFarm member $animal Branch $branch " .
 		  "Alert notification");
     my $fh = $msg->open;
     print $fh "\n\n$text\n"; 

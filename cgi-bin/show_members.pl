@@ -41,13 +41,13 @@ my $statement = q{
   select name, operating_system, os_version, compiler, compiler_version, owner_email, 
     sys_notes_ts::date AS sys_notes_date, sys_notes,
     architecture as arch, ARRAY(
-				select branch || ':' || 
+				select branch || E':' || 
 				       extract(days from now() - l.snapshot)
 				from latest_snapshot l 
 				where l.sysname = s.name
 				order by branch <> 'HEAD', branch desc 
 				) as branches, 
-			  ARRAY(select compiler_version || '\t' ||  os_version || '\t' || effective_date
+			  ARRAY(select compiler_version || E'\t' ||  os_version || E'\t' || effective_date
 				from personality p
 				where p.name = s.name 
 				order by effective_date

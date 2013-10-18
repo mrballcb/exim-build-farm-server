@@ -16,21 +16,20 @@ See accompanying License file for license details
 before submitting this form.</p>
 
 <ul>
-<li> your machine will need to be able to contact <a href="http://www.pgbuildfarm.org">http://www.pgbuildfarm.org</a>
-     either directly or via proxy, and it will need access to a Exim Git repository, 
-     either the one at postgresql.org or a mirror.</li>
+<li> your machine will need to be able to contact <a href="http://eximbuild.mrball.net">http://eximbuild.mrball.net</a>
+     either directly or via proxy, and it will need access to an Exim Git repository, 
+     either the one at exim.org or a mirror.</li>
 <li> have <a href="http://git-scm.org">git</a> installed.</li>
-<li> have a working Postgresql build environment for your platform.</li>
-<li> Windows only: you will need a native perl installed (and not just the one from the MSys DTK). The one from ActiveState works fine.</li>
+<li> have a working Exim build environment for your platform.</li>
 <li> download and unpack the latest release of client code from 
-     <a href="http://www.pgbuildfarm.org/downloads/">http://www.pgbuildfarm.org/downloads/</a></li>
+     <a href="http://eximbuild.mrball.net/downloads/">http://eximbuild.mrball.net/downloads/</a></li>
 <li> read instructions at 
-     <a href="http://wiki.postgresql.org/wiki/Exim_Buildfarm_Howto">http://wiki.postgresql.org/wiki/PostgreSQL_Buildfarm_Howto</a></li>
-<li> get the software running locally using flags --force --nostatus --nosend</li>
+     <a href="http://wiki.exim.org/wiki/Exim_Buildfarm_Howto">http://wiki.exim.org/wiki/Exim_Buildfarm_Howto</a></li>
+<li> get the software running locally using --test (implies flags --force --nostatus --nosend --verbose)</li>
+<li> add --verbose=2 to printout out the entire configure/build/doc/test output</li>
 <li> register your machine on this page</li>
 <li> when you receive credentials, put them in the config file, and schedule regular builds (without those flags) 
-     for the branches you want to support - which should be at least HEAD and the most recent stable branch.</li>
-<li> Note that it is possible (and quite common) to run more than one buildfarm member on a single machine.</li>
+     for the branches you want to support, which at this time is limited to HEAD</li>
 </ul>
 <hr />
 

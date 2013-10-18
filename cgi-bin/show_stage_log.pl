@@ -79,8 +79,8 @@ if ($system && $logdate && $stage)
     print "Content-Type: text/plain\n\nSnapshot: $logdate\n\n", $logtext,
 
     "-------------------------------------------------\n\n",
-    "Hosting for the PostgreSQL Buildfarm is generously ",
-    "provided by: CommandPrompt, The PostgreSQL Company";
+    "Hosting for the Exim BuildFarm is generously ",
+    "provided by: Todd Lyons";
 
 }
 

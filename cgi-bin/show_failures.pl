@@ -71,7 +71,7 @@ my $all_members = $db->selectcol_arrayref($get_all_members);
 
 my $get_all_stages = qq{
 
-  select distinct stage 
+  select distinct build_status.stage 
   from build_status 
     join nrecent_failures using (sysname,snapshot,branch)
 
@@ -109,18 +109,18 @@ while (my $row = $sth->fetchrow_hashref)
     next if (@branches && ! grep {$_ eq $row->{branch} } @branches);
     $row->{build_flags}  =~ s/^\{(.*)\}$/$1/;
     $row->{build_flags}  =~ s/,/ /g;
-	# enable-integer-datetimes is now the default
-	if ($row->{branch} eq 'HEAD' || $row->{branch} gt 'REL8_3_STABLE')
-	{
-		$row->{build_flags} .= " --enable-integer-datetimes "
-			unless ($row->{build_flags} =~ /--(en|dis)able-integer-datetimes/);
-	}
-	# enable-thread-safety is now the default
-	if ($row->{branch} eq 'HEAD' || $row->{branch} gt 'REL8_5_STABLE')
-	{
-		$row->{build_flags} .= " --enable-thread-safety "
-			unless ($row->{build_flags} =~ /--(en|dis)able-thread-safety/);
-	}
+##	# enable-integer-datetimes is now the default
+##	if ($row->{branch} eq 'HEAD' || $row->{branch} gt 'REL8_3_STABLE')
+##	{
+##		$row->{build_flags} .= " --enable-integer-datetimes "
+##			unless ($row->{build_flags} =~ /--(en|dis)able-integer-datetimes/);
+##	}
+##	# enable-thread-safety is now the default
+##	if ($row->{branch} eq 'HEAD' || $row->{branch} gt 'REL8_5_STABLE')
+##	{
+##		$row->{build_flags} .= " --enable-thread-safety "
+##			unless ($row->{build_flags} =~ /--(en|dis)able-thread-safety/);
+##	}
     $row->{build_flags}  =~ s/--((enable|with)-)?//g;
 	$row->{build_flags} =~ s/libxml/xml/;
     $row->{build_flags}  =~ s/\S+=\S+//g;

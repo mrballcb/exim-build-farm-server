@@ -8,19 +8,21 @@ See accompanying License file for license details
 [%
  flag_imgs = {
      perl = '/img/camel.png',
-     python = '/img/python.png',
-     debug = '/img/bug.png',
-     pam => '/img/pam.png',
-     cassert => '/img/cassert.png',
+     #python = '/img/python.png',
+     #debug = '/img/bug.png',
+     #pam => '/img/pam.png',
+     #cassert => '/img/cassert.png',
      openssl => '/img/ssl_icon.gif',
-     nls => '/img/translateicon.gif',
-     krb5 => '/img/krb.gif',
-     gssapi => '/img/gssapi.gif',
-     tcl => '/img/tcl.png',
-     vpath => '/img/vpath.png',
-     xml => '/img/xml.png',
-     'thread-safety' => '/img/threads.gif',
-     'integer-datetimes' = '/img/days.png',
+     gnutls => '/img/gnutls_icon.gif',
+     #nls => '/img/translateicon.gif',
+     #krb5 => '/img/krb.gif',
+     #gssapi => '/img/gssapi.gif',
+     #tcl => '/img/tcl.png',
+     #vpath => '/img/vpath.png',
+     #xml => '/img/xml.png',
+     #'thread-safety' => '/img/threads.gif',
+     #'integer-datetimes' = '/img/days.png',
+     mysql = '/img/mysql_logo.png',
      }
 -%]
 [%- BLOCK img ; IF flag == 'depend' or flag == 'gnu-ld' ; ; ELSIF flag_imgs.$flag %]<img src="[% flag_imgs.$flag %]" title="[% flag %]" alt="[% flag %]" height="16" width="16" class="inline" align="bottom" />  [% ELSE %][%#

@@ -22,7 +22,7 @@ my $query = new CGI;
 my @members = $query->param('member');
 map { s/[^a-zA-Z0-9_ -]//g; } @members;
 
-my $dsn="dbi:mysql:dbname=$dbname";
+my $dsn="dbi:Pg:dbname=$dbname";
 $dsn .= ";host=$dbhost" if $dbhost;
 $dsn .= ";port=$dbport" if $dbport;
 
@@ -50,7 +50,7 @@ my $statement =<<EOS;
 
   select timezone('GMT'::text, now())::timestamp(0) without time zone - b.snapshot AS when_ago, b.*
   from dashboard_mat b
-  order by branch = 'HEAD' desc,
+  order by branch = 'master' desc,
         branch desc, $sort_clause 
         snapshot desc
 

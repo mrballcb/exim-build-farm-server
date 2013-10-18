@@ -11,7 +11,7 @@ See accompanying License file for license details
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>[% title %]</title>
-    <link rel="icon" type="image/png" href="/elephant-icon.png" />
+    <link rel="icon" type="image/png" href="/exim-blue-ld-60x60.png" />
     <link rel="stylesheet" rev="stylesheet" href="/inc/pgbf.css" charset="utf-8" />
     <style type="text/css"><!--
 	li#[% pagebutton %] a { color:rgb(17,45,137); background: url(/inc/b/r.png) no-repeat 100% -20px; } 
@@ -21,7 +21,7 @@ See accompanying License file for license details
   <body class="[% bodyclass %]">
     <div id="wrapper">
       <div id="banner">
-        <a href="/index.html"><img src="/inc/pgbuildfarm-banner.png" alt="Exim BuildFarm" width="800" height="73" /></a>
+        <a href="/index.html"><img src="/inc/eximbuildfarm-banner.png" alt="Exim BuildFarm" width="800" height="73" /></a>
         <div class="nav">
           <ul>
     	    <li id="home"><a href="/index.html" title="Exim BuildFarm Home">Home</a></li>
@@ -30,10 +30,17 @@ See accompanying License file for license details
     	    <li id="members"><a href="/cgi-bin/show_members.pl" title="Platforms tested">Members</a></li>
     	    <li id="register"><a href="/cgi-bin/register-form.pl" title="Join Exim BuildFarm">Register</a></li>
     	    <li id="github"><a href="https://github.com/PGBuildFarm/client-code">GitHub</a></li>
+            <!--
     	    <li id="lists"><a href="http://pgfoundry.org/mail/?group_id=1000040">Email lists and status archives</a></li>
+            -->
           </ul>
         </div><!-- nav -->
       </div><!-- banner -->
+      <div class="main">
+        <p>
+          <strong>WARNING:</strong> Server and client are still considered beta level; still designing/adapting, so expect rapid fluctuation.
+        </p>
+      </div>
       <div class="main">
         [% content %]
       </div><!-- main -->
