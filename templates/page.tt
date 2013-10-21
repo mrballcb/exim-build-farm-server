@@ -29,7 +29,7 @@ See accompanying License file for license details
     	    <li id="failures"><a href="/cgi-bin/show_failures.pl" title="Recent Failures">Failures</a></li>
     	    <li id="members"><a href="/cgi-bin/show_members.pl" title="Platforms tested">Members</a></li>
     	    <li id="register"><a href="/cgi-bin/register-form.pl" title="Join Exim BuildFarm">Register</a></li>
-    	    <li id="github"><a href="https://github.com/PGBuildFarm/client-code">GitHub</a></li>
+    	    <li id="github"><a href="https://github.com/mrballcb/exim-build-farm-client">GitHub</a></li>
             <!--
     	    <li id="lists"><a href="http://pgfoundry.org/mail/?group_id=1000040">Email lists and status archives</a></li>
             -->
@@ -46,8 +46,11 @@ See accompanying License file for license details
       </div><!-- main -->
       <hr />
       <p style="text-align: center;">
-	Hosting for the Exim Buildfarm is generously 
-	provided by: 
+	The build farm client and server is derived from the excellent
+	<a href="http://buildfarm.postgresql.org">PostgreSQL Build Farm</a>.
+      </p>
+      <p style="text-align: center;">
+	Hosting for the Exim Buildfarm is provided by: 
 	<a href="http://www.mrball.net">Todd Lyons</a>
       </p>
     </div><!-- wrapper -->
