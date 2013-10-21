@@ -21,10 +21,9 @@ before submitting this form.</p>
      either the one at exim.org or a mirror.</li>
 <li> have <a href="http://git-scm.org">git</a> installed.</li>
 <li> have a working Exim build environment for your platform.</li>
-<li> download and unpack the latest release of client code from 
-     <a href="http://eximbuild.mrball.net/downloads/">http://eximbuild.mrball.net/downloads/</a></li>
 <li> read instructions at 
-     <a href="http://wiki.exim.org/wiki/Exim_Buildfarm_Howto">http://wiki.exim.org/wiki/Exim_Buildfarm_Howto</a></li>
+     <a href="https://github.com/mrballcb/exim-build-farm-client/wiki">https://github.com/mrballcb/exim-build-farm-client/wiki</a></li>
+<li> will require a git checkout of the <a href="https://github.com/mrballcb/exim-build-farm-client">Exim Build Farm Client Code</a>
 <li> get the software running locally using --test (implies flags --force --nostatus --nosend --verbose)</li>
 <li> add --verbose=2 to printout out the entire configure/build/doc/test output</li>
 <li> register your machine on this page</li>
