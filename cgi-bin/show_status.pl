@@ -65,21 +65,8 @@ while (my $row = $sth->fetchrow_hashref)
     next if (@members && ! grep {$_ eq $row->{sysname} } @members);
     $row->{build_flags}  =~ s/^\{(.*)\}$/$1/;
     $row->{build_flags}  =~ s/,/ /g;
-	# enable-integer-datetimes is now the default
-	if ($row->{branch} eq 'HEAD' || $row->{branch} gt 'REL8_3_STABLE')
-	{
-		$row->{build_flags} .= " --enable-integer-datetimes "
-			unless ($row->{build_flags} =~ /--(en|dis)able-integer-datetimes/);
-	}
-	# enable-thread-safety is now the default
-	if ($row->{branch} eq 'HEAD' || $row->{branch} gt 'REL8_5_STABLE')
-	{
-		$row->{build_flags} .= " --enable-thread-safety "
-			unless ($row->{build_flags} =~ /--(en|dis)able-thread-safety/);
-	}
-    $row->{build_flags}  =~ s/--((enable|with)-)?//g;
-	$row->{build_flags} =~ s/libxml/xml/;
-    $row->{build_flags}  =~ s/\S+=\S+//g;
+    $row->{build_flags}  =~ s/_PC\b//g;
+    $row->{build_flags} = lc($row->{build_flags});
     push(@$statrows,$row);
 }
 $sth->finish;
