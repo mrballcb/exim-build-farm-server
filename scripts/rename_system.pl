@@ -8,6 +8,7 @@ use Data::Dumper;
 die "Must pass current and new sysnames\n" unless scalar @ARGV == 2;
 
 use vars qw($dbhost $dbname $dbuser $dbpass $dbport
+            $user_list_format
 );
 require "$ENV{BFConfDir}/BuildFarmWeb.pl";
 
@@ -36,11 +37,13 @@ my $sth = $db->prepare(q[
       ]);
 $sth->execute();
 
-my $format = "%-10s %-10s %-18s %-20s %-18s %-s\n";
-printf $format, "SysName", "Status", "Owner", "Email", "Distro", "Version";
+my $user_list_format = "%-10s %-10s %-18s %-20s %-18s %-s\n";
+printf $user_list_format,
+       "SysName", "Status", "Owner", "Email", "Distro", "Version";
 while (my $row = $sth->fetchrow_hashref)
 {
-  printf $format, $row->{name}, $row->{status}, $row->{sys_owner},
+  printf $user_list_format,
+                  $row->{name}, $row->{status}, $row->{sys_owner},
                   $row->{owner_email}, $row->{operating_system},
                   $row->{os_version};
 }

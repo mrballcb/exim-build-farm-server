@@ -47,10 +47,15 @@ $green_stat=['foo-status-green@somewhere.org'];
 $min_script_version = "99.99";
 $min_web_script_version = "99.99";
 
-# captcha keys for site
+# captcha keys for site.  Get your own ReCaptcha site info.
 $captcha_pubkey = 'foo';
 $captcha_privkey = 'bar';
 
+# Copy of git tree to compare client references to
+$local_git_clone = '/home/farm/git/exim/exim.git';
 
+$user_list_format = "%-10s %-10s %-18s %-22s %-18s %-s\n";
 
+# Uncomment to get extra info
+# $ENV{BF_DEBUG} = 1;
 1;

@@ -227,7 +227,7 @@ if ($log_archive)
 	chomp $githeadref;
 	close $githead;
     }
-    # unlink $archname;
+    unlink $archname;
 }
 
 my $config_flags;
