@@ -47,7 +47,11 @@ my $del_dash_sth = $db->prepare(q[
        WHERE sysname = ?
        AND branch = ?
       ]);
-
+my $del_snap_sth = $db->prepare(q[
+       DELETE FROM latest_snapshot
+       WHERE sysname = ?
+       AND branch = ?
+      ]);
 while (my $row = $sth->fetchrow_hashref)
 {
   my $sysname = $row->{sysname};
@@ -58,6 +62,7 @@ while (my $row = $sth->fetchrow_hashref)
     print "** Delete branch $branch\n";
     $del_sth->execute($sysname,$branch);
     $del_dash_sth->execute($sysname,$branch);
+    $del_snap_sth->execute($sysname,$branch);
   }
 }
 $db->disconnect();

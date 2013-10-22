@@ -5,7 +5,7 @@ use warnings;
 use DBI;
 use Data::Dumper;
 
-die "Must pass sysname and status\n" unless scalar @ARGV == 2;
+die "Must pass current sysname and new sysname\n" unless scalar @ARGV == 2;
 
 use vars qw($dbhost $dbname $dbuser $dbpass $dbport
 );
@@ -22,12 +22,11 @@ my $db = DBI->connect($dsn,$dbuser,$dbpass);
 
 die $DBI::errstr unless $db;
 
-my $sth_up = $db->prepare(q[
-       UPDATE buildsystems AS b
-       SET status = ?
-       WHERE name = ?
-      ]);
-$sth_up->execute($ARGV[1],$ARGV[0]);
+#my $sth_up = $db->prepare(q[
+#       SELECT approve(?, ?)
+#      ]);
+#$sth_up->execute(@ARGV);
+$db->do('SELECT approve(?, ?)', undef, @ARGV);
 
 my $sth = $db->prepare(q[ 
        SELECT name, status, operating_system, os_version, sys_owner, owner_email
