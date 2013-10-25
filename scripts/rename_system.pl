@@ -37,7 +37,6 @@ my $sth = $db->prepare(q[
       ]);
 $sth->execute();
 
-my $user_list_format = "%-10s %-10s %-18s %-20s %-18s %-s\n";
 printf $user_list_format,
        "SysName", "Status", "Owner", "Email", "Distro", "Version";
 while (my $row = $sth->fetchrow_hashref)
