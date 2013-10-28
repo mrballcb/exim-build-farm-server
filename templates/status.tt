@@ -12,6 +12,7 @@ See accompanying License file for license details
      gnutls => '/img/gnutls_icon.gif',
      mysql => '/img/mysql_logo.png',
      pgsql => '/img/postgresql-icon-32.png',
+     ldap => '/img/openldap_logo.jpg',
      #python => '/img/python.png',
      #debug => '/img/bug.png',
      #pam => '/img/pam.png',

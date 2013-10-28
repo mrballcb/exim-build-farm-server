@@ -35,7 +35,7 @@ my $sth = $db->prepare(q[
       ]);
 $sth->execute();
 
-sub send_welcome_message
+sub send_welcome_email
 {
   my $row = shift() or return;
   my $msg = new Mail::Send;
