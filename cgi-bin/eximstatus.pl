@@ -297,6 +297,10 @@ if (@config_flags)
     @config_flags = grep {! m/=/ } @config_flags;
     map {s/\s+//g; $_=qq("$_"); } @config_flags;
     push @config_flags,'git' if $client_conf->{scm} eq 'git';
+    push(@config_flags, 'doc')
+      if (defined $client_conf->{'optional_steps'}->{'make-doc'});
+    push(@config_flags, 'test')
+      if (defined $client_conf->{'optional_steps'}->{'test'});
     $config_flags = '{' . join(',',@config_flags) . '}' ;
 }
 
