@@ -105,7 +105,7 @@ See accompanying License file for license details
 <h5>Git log</h5>
 <pre>
 [% IF last_build_git_ref && git_head_ref %]
-<a href="https://github.com/postgres/postgres/compare/[% last_build_git_ref %]...[% git_head_ref %]">Change Set for this build</a>
+<a href="https://github.com/Exim/exim/compare/[% last_build_git_ref %]...[% git_head_ref %]">Change Set for this build</a>
 [% END %]
 [% FOREACH clog IN changed_this_run_logs ; PROCESS gitlog -%]
 [%- END -%]
